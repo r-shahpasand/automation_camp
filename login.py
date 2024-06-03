@@ -12,4 +12,4 @@ class Login:
         self.driver.find_element('name', self.password_textbox_name).send_keys(password)
 
     def click_on_login_button(self):
-        self.driver.find_element('class name', self.login_button_class).click() 
+        self.driver.find_element('xpath',"//button[@type='submit']").click()
