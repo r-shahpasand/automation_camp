@@ -1,5 +1,5 @@
-from login import Login
-from main import Main
+from Pages.login import Login
+from Pages.main import Main
 from selenium import webdriver
 from time import sleep
 
