@@ -4,6 +4,7 @@ from selenium import webdriver
 from time import sleep
 import unittest
 
+
 class LoginTests(unittest.TestCase):
 
     @classmethod
