@@ -18,8 +18,23 @@ def wait_until_element_has_an_attribute(element_selector, element_locator, attri
             sleep(0.2)
     raise Exception("Element attribute  " + str(attribute_value) + "not found.")
 
+
+def wait_until_element_has_not_an_attribute(element_selector, element_locator, attribute, attribute_value, timeout=5):
+    for i in range(timeout * 5):
+        try:
+            element = driver.find_element(element_selector, element_locator)
+            assert attribute_value not in element.get_attribute(attribute)
+            return
+        except:
+            sleep(0.2)
+    raise Exception("Element attribute  " + str(attribute_value) + " found.")
+
+
 trigger = driver.find_element(By.ID, "enabled_trigger")
 trigger.location_once_scrolled_into_view
-trigger.click()
 
+wait_until_element_has_not_an_attribute(By.ID, "enabled_target", "class", "success")
+wait_until_element_has_an_attribute(By.ID, "enabled_target", "class", "danger")
+trigger.click()
 wait_until_element_has_an_attribute(By.ID, "enabled_target", "class", "success")
+
